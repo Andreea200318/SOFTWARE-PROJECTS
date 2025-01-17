@@ -1,0 +1,15 @@
+Script procedura stocata
+USE new_schema;
+DELIMITER //
+
+CREATE PROCEDURE CautaProprietariNumeEndsWithP()
+BEGIN
+    SELECT *
+    FROM Proprietar
+    WHERE LOWER(SUBSTR(nume, -1, 1)) = 'p'
+    ORDER BY nume DESC;
+END //
+
+DELIMITER ;
+
+

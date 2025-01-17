@@ -1,0 +1,120 @@
+.register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 180px;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 50px; /* Adăugat spațiu sub casetă */
+  }
+  
+  .register-form label {
+    font-weight: bold;
+    color: #388e3c;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  
+  .register-form input {
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #a5d6a7;
+    border-radius: 6px;
+    background-color: #f1f8e9;
+    transition: all 0.3s ease;
+  }
+  
+  .register-form input:focus {
+    border-color: #66bb6a;
+    outline: none;
+    background-color: #e8f5e9;
+  }
+  
+  .register-form button {
+    background-color: #43a047;
+    color: #ffffff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 10px; /* Adăugat spațiu sub casetă */
+  }
+  
+  .register-form button:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+  }
+  
+  .register-form button:active {
+    background-color: #2e7d32;
+    transform: translateY(0);
+  }
+  
+  .direct-client-login {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    border-radius: 50px; /* Rotunjire completă */
+    border: none; /* Elimină orice bordură */
+  }
+  
+  .direct-client-login:hover {
+    background-color: #218838;
+  }
+  
+  .direct-client-login:active {
+    background-color: #1e7e34;
+  }
+  
+  .error {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .register-form h1 {
+    margin-bottom: 1.5rem;
+    color: #2e7d32;
+    font-size: 1.5rem;
+  }
+  
+
+  .go-to-login-btn {
+    padding: 0.75rem;
+    background-color: #43a047; /* Folosim aceleași culori ca și pentru butonul de register */
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 1rem; /* Adăugăm un spațiu deasupra butonului */
+    border-radius: 6px; /* Colțuri rotunjite */
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .go-to-login-btn:hover {
+    background-color: #388e3c; /* Schimbăm culoarea la hover */
+  }
+  
+  .go-to-login-btn:active {
+    background-color: #2e7d32; /* Schimbăm culoarea la click */
+    transform: translateY(2px); /* Mică animație */
+  }

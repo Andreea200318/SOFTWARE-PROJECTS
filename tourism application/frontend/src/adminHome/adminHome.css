@@ -1,0 +1,68 @@
+.admin-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 210px ;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.admin-home h1 {
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+.admin-home p {
+  color: #388e3c;
+  margin-bottom: 2rem;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.action-btn {
+  padding: 1rem 2rem;
+  background-color: #43a047;
+  color: #ffffff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-btn:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+.action-btn:active {
+  background-color: #2e7d32;
+  transform: translateY(0);
+}
+
+.logout-btn {
+  padding: 0.75rem 2rem;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #b71c1c;
+  transform: translateY(-2px);
+}
+
+.logout-btn:active {
+  background-color: #b71c1c;
+}

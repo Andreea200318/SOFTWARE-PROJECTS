@@ -1,0 +1,55 @@
+.topAttractions-container {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 180px; /* Ajustează în funcție de header */
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+}
+
+.topAttractions-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.topAttractions {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.topAttractions a {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundal semi-transparent */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, font-size 0.3s ease; /* Tranziție fundal și font */
+}
+
+/* Efect de hover pe link */
+.topAttractions:hover a {
+  background-color: rgba(0, 0, 0, 0.8); /* Fundal mai opac */
+  font-size: 1.3rem; /* Text ușor mai mare */
+}
+
+/* Animație la hover pentru întreaga secțiune */
+.topAttractions:hover {
+  transform: scale(1.05);
+}

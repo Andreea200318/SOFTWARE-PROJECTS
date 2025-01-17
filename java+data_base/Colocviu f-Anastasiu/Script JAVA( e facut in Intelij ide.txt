@@ -1,0 +1,450 @@
+Script JAVA( e facut in Intelij idea)
+
+javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.sql.*;
+
+public class nuj extends JFrame{
+    private JButton btnShow;
+    private JTable table1;
+    private JButton btnReset;
+    private JPanel h;
+    private JButton btn3;
+    private JButton btn4;
+    private JButton btn5;
+    private JButton btn6;
+    private JButton btn7;
+    private JButton btn8;
+    private JButton btn9;
+    private JScrollPane scrollPane1;
+
+    public nuj() {
+        setSize(400,400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle("ex");
+        setContentPane(h);
+        setVisible(true);
+        pack();
+
+
+        btnShow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+                Connection connection = null;
+                CallableStatement callableStatement = null;
+                ResultSet resultSet = null;
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/new_schema", "root", "andreeasql");
+
+                    callableStatement = connection.prepareCall("{call CautaProprietariNumeEndsWithP()}");
+                    resultSet = callableStatement.executeQuery();
+
+                    DefaultTableModel model = (DefaultTableModel) table1.getModel();
+                    String[] colName = {"id_proprietar", "nume", "email"};
+                    model.setColumnIdentifiers(colName);
+
+                    while (resultSet.next()) {
+                        String id_persoana = resultSet.getString("id_proprietar");
+                        String nume = resultSet.getString("nume");
+                        String email = resultSet.getString("email");
+
+
+                        // Assuming that your JTable can handle rendering of Date and BigDecimal,
+                        // If not, you may want to convert them to String
+                        Object[] row = {id_persoana, nume, email};
+                        model.addRow(row);
+                    }
+
+                } catch (SQLException | ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } finally {
+                    try {
+                        if (resultSet != null) resultSet.close();
+                        if (callableStatement != null) callableStatement.close();
+                        if (connection != null) connection.close();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+
+
+        /*btnShow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+                Connection connection;
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/new_schema", "root", "andreeasql");8/
+
+                    /*Statement st=con.createStatement();
+                    String query="select *from Proprietar where LOWER(SUBSTRING(nume,-1,1))='p' ORDER BY nume DESC";
+                   ResultSet rs= st.executeQuery(query);
+                   ResultSetMetaData rsmd= rs.getMetaData();
+                    DefaultTableModel model= (DefaultTableModel) table1.getModel();
+
+                    int cols=rsmd.getColumnCount();
+                    String[] colName= new String[cols];
+                    for(int i=0;i<cols;i++)
+                    {
+                        colName[i]=rsmd.getColumnName(i+1);
+                    }
+                    model.setColumnIdentifiers(colName);
+                    String id,nume,email;
+                    while(rs.next())
+                    {
+                        id=rs.getString(1);
+                        nume=rs.getString(2);
+                        email=rs.getString(3);
+                        String[] row={id,nume,email};
+                        model.addRow(row);
+                    }
+                    st.close();
+                    con.close();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+        btnReset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+            }
+        });*/
+        btn3.addActionListener(new ActionListener() {
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/new_schema","root","andreeasql");
+                    Statement st=con.createStatement();
+                    String query="select *from  Chitanta\n" +
+                            "WHERE EXTRACT(YEAR FROM datai) = 2023\n" +
+                            "ORDER BY valoare DESC;";
+                    ResultSet rs= st.executeQuery(query);
+                    ResultSetMetaData rsmd= rs.getMetaData();
+                    DefaultTableModel model= (DefaultTableModel) table1.getModel();
+
+                    int cols=rsmd.getColumnCount();
+                    String[] colName= new String[cols];
+                    for(int i=0;i<cols;i++)
+                    {
+                        colName[i]=rsmd.getColumnName(i+1);
+                    }
+                    model.setColumnIdentifiers(colName);
+                    String nr,data,id,val;
+                    while(rs.next())
+                    {
+                        nr=rs.getString(1);
+                        data=rs.getString(2);
+                        id=rs.getString(3);
+                        val=rs.getString(4);
+                        String[] row={nr,data,id,val};
+                        model.addRow(row);
+                    }
+                    st.close();
+                    con.close();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+        btn4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/new_schema","root","andreeasql");
+                    Statement st=con.createStatement();
+                    String query="SELECT A.adresa, A.nr_ap, P.nume AS proprietar, C.valoare FROM Chitanta C JOIN Apartament A ON C.id_apartament = A.id_ap JOIN Proprietar P ON A.id_proprietar = P.id_proprietar WHERE EXTRACT(MONTH FROM C.datai) = 10 AND EXTRACT(YEAR FROM C.datai) = 2023 AND A.adresa = 'Gherla Băișoara 6'";
+
+                    ResultSet rs= st.executeQuery(query);
+                    ResultSetMetaData rsmd= rs.getMetaData();
+                    DefaultTableModel model= (DefaultTableModel) table1.getModel();
+
+                    int cols=rsmd.getColumnCount();
+                    String[] colName= new String[cols];
+                    for(int i=0;i<cols;i++)
+                    {
+                        colName[i]=rsmd.getColumnName(i+1);
+                    }
+                    model.setColumnIdentifiers(colName);
+                    String nr,data,id,val;
+                    while(rs.next())
+                    {
+                        nr=rs.getString(1);
+                        data=rs.getString(2);
+                        id=rs.getString(3);
+                        val=rs.getString(4);
+                        String[] row={nr,data,id,val};
+                        model.addRow(row);
+                    }
+                    st.close();
+                    con.close();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+        btn5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/new_schema","root","andreeasql");
+                    Statement st=con.createStatement();
+                    String query=" SELECT A1.id_ap AS id_ap1, A2.id_ap AS id_ap2\n" +
+                            "FROM Apartament A1\n" +
+                            "JOIN Apartament A2 ON A1.adresa = A2.adresa AND A1.suprafata = A2.suprafata AND A1.id_ap < A2.id_ap;";
+
+                    ResultSet rs= st.executeQuery(query);
+                    ResultSetMetaData rsmd= rs.getMetaData();
+                    DefaultTableModel model= (DefaultTableModel) table1.getModel();
+
+                    int cols=rsmd.getColumnCount();
+                    String[] colName= new String[cols];
+                    for(int i=0;i<cols;i++)
+                    {
+                        colName[i]=rsmd.getColumnName(i+1);
+                    }
+                    model.setColumnIdentifiers(colName);
+                    String ap1,ap2;
+                    while(rs.next())
+                    {
+                        ap1=rs.getString(1);
+                        ap2=rs.getString(2);
+
+                        String[] row={ap1,ap2};
+                        model.addRow(row);
+                    }
+                    st.close();
+                    con.close();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+        btn6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/new_schema","root","andreeasql");
+                    Statement st=con.createStatement();
+                    String query=" SELECT *\n" +
+                            "FROM Consum c1\n" +
+                            "WHERE c1.luna = 9\n" +
+                            "  AND NOT EXISTS (\n" +
+                            "    SELECT 1\n" +
+                            "    FROM Consum c2\n" +
+                            "    WHERE c2.luna = 9\n" +
+                            "      AND c2.valoare < c1.valoare\n" +
+                            ");";
+
+                    ResultSet rs= st.executeQuery(query);
+                    ResultSetMetaData rsmd= rs.getMetaData();
+                    DefaultTableModel model= (DefaultTableModel) table1.getModel();
+
+                    int cols=rsmd.getColumnCount();
+                    String[] colName= new String[cols];
+                    for(int i=0;i<cols;i++)
+                    {
+                        colName[i]=rsmd.getColumnName(i+1);
+                    }
+                    model.setColumnIdentifiers(colName);
+                    String id_c,an,luna,nr,cant,val,id;
+                    while(rs.next())
+                    {
+                        id_c=rs.getString(1);
+                        an=rs.getString(2);
+                        luna=rs.getString(3);
+                        nr=rs.getString(4);
+                        cant=rs.getString(5);
+                        val=rs.getString(6);
+                        id=rs.getString(7);
+
+                        String[] row={id_c,an,luna,nr,cant,val,id};
+                        model.addRow(row);
+                    }
+                    st.close();
+                    con.close();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+        btn7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/new_schema","root","andreeasql");
+                    Statement st=con.createStatement();
+                    String query=" SELECT DISTINCT p.nume\n" +
+                            "FROM Proprietar p\n" +
+                            "WHERE EXISTS (\n" +
+                            "    SELECT 1\n" +
+                            "    FROM Apartament a1, Apartament a2\n" +
+                            "    WHERE a1.id_proprietar = p.id_proprietar\n" +
+                            "      AND a2.id_proprietar = p.id_proprietar\n" +
+                            "      AND a1.id_ap <> a2.id_ap\n" +
+                            ");";
+
+                    ResultSet rs= st.executeQuery(query);
+                    ResultSetMetaData rsmd= rs.getMetaData();
+                    DefaultTableModel model= (DefaultTableModel) table1.getModel();
+
+                    int cols=rsmd.getColumnCount();
+                    String[] colName= new String[cols];
+                    for(int i=0;i<cols;i++)
+                    {
+                        colName[i]=rsmd.getColumnName(i+1);
+                    }
+                    model.setColumnIdentifiers(colName);
+                    String nume;
+                    while(rs.next())
+                    {
+                        nume=rs.getString(1);
+
+
+                        String[] row={nume};
+                        model.addRow(row);
+                    }
+                    st.close();
+                    con.close();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+        btn8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/new_schema","root","andreeasql");
+                    Statement st=con.createStatement();
+                    String query="SELECT \n" +
+                            "    an AS anul,\n" +
+                            "    id_apartament AS id_ap,\n" +
+                            "    MIN(valoare) AS minim,\n" +
+                            "    AVG(valoare) AS mediu,\n" +
+                            "    MAX(valoare) AS maxim\n" +
+                            "FROM Consum\n" +
+                            "GROUP BY an, id_apartament ;";
+
+                    ResultSet rs= st.executeQuery(query);
+                    ResultSetMetaData rsmd= rs.getMetaData();
+                    DefaultTableModel model= (DefaultTableModel) table1.getModel();
+
+                    int cols=rsmd.getColumnCount();
+                    String[] colName= new String[cols];
+                    for(int i=0;i<cols;i++)
+                    {
+                        colName[i]=rsmd.getColumnName(i+1);
+                    }
+                    model.setColumnIdentifiers(colName);
+                    String nr,data,id,val,maxx;
+                    while(rs.next())
+                    {
+                        nr=rs.getString(1);
+                        data=rs.getString(2);
+                        id=rs.getString(3);
+                        val=rs.getString(4);
+                        maxx=rs.getString(5);
+                        String[] row={nr,data,id,val,maxx};
+                        model.addRow(row);
+                    }
+                    st.close();
+                    con.close();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+        btn9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table1.setModel(new DefaultTableModel());
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/new_schema","root","andreeasql");
+                    Statement st=con.createStatement();
+                    String query=" SELECT \n" +
+                            "    P.nume AS nume_proprietar\n" +
+                            "FROM Proprietar P\n" +
+                            "JOIN Apartament A ON P.id_proprietar = A.id_proprietar\n" +
+                            "JOIN Consum C ON A.id_ap = C.id_apartament\n" +
+                            "WHERE C.an = 2023 AND C.luna = 10 AND A.adresa = 'Gherla Băișoara 6';";
+
+                    ResultSet rs= st.executeQuery(query);
+                    ResultSetMetaData rsmd= rs.getMetaData();
+                    DefaultTableModel model= (DefaultTableModel) table1.getModel();
+
+                    int cols=rsmd.getColumnCount();
+                    String[] colName= new String[cols];
+                    for(int i=0;i<cols;i++)
+                    {
+                        colName[i]=rsmd.getColumnName(i+1);
+                    }
+                    model.setColumnIdentifiers(colName);
+                    String nume;
+                    while(rs.next())
+                    {
+                        nume=rs.getString(1);
+
+
+                        String[] row={nume};
+                        model.addRow(row);
+                    }
+                    st.close();
+                    con.close();
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+    public static void main(String[] args) {
+        nuj DL2= new nuj();
+    }
+
+
+}

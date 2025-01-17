@@ -1,0 +1,206 @@
+Script MySQL
+USE new_schema;
+CREATE TABLE Proprietar (
+    id_proprietar INT,
+    nume VARCHAR (255),
+    email VARCHAR (25),
+    PRIMARY KEY (id_proprietar) 
+);
+CREATE TABLE Apartament (
+    id_ap INT,
+    adresa VARCHAR (255),
+    nr_ap INT,
+    suprafata FLOAT,
+    id_proprietar INT,
+    FOREIGN KEY (id_proprietar) REFERENCES Proprietar (id_proprietar),
+    PRIMARY KEY (id_ap )
+);
+CREATE TABLE Consum (
+	id_consum INT,
+    an INT ,
+    luna INT,
+    nr_pers INT,
+    cantitate FLOAT,
+    valoare FLOAT,
+    id_apartament INT,
+    FOREIGN KEY (id_apartament) REFERENCES Apartament (id_ap),
+     PRIMARY KEY(id_consum)
+);
+
+CREATE TABLE Chitanta (
+    nr INT,
+    datai DATE,
+    id_apartament INT,
+    valoare INT,
+    FOREIGN KEY (id_apartament) REFERENCES Apartament (id_ap),
+    PRIMARY KEY (nr)
+);
+CREATE INDEX idx_apartament_adresa ON Apartament (adresa);
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(1, 'Maris Filip', 'maris.filip@example.com');
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(2, 'Atanasoaei Filip', 'at.filip@example.com');
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(3, 'Nastaca Maria', 'n.maria@example.com');
+
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(11, '123 MainP St', 1, 150.0, 1);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(21, '13 Bucov St', 5, 100.0, 2);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(31, '7 AB St', 10, 50.0, 3);
+
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (1, 2023, 10, 2, 10.0, 50.0, 11);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (2, 2022, 3, 1, 15.0, 80.0, 21);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (3, 2023, 2, 3, 60.0, 150.0, 31);
+
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(1, "2023-10-19", 11, 50.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(2, "2022-05-04", 21, 80.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(3, "2023-03-02", 31, 150.0);
+
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(4,'John Doe', 'john.doe@example.com');
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(5,'John Maria', 'john.maria@example.com');
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(6,'Dumitrache Daria','dumitac.daria@example.com');
+
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(41,'Gherla Băișoara 6', 10, 50.0, 4);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(51, 'Gherla Băișoara 6', 1, 100.0, 5);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(61, 'Gherla Băișoara 6', 9, 100.0, 6);
+
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (4, 2023, 10, 2, 10.0, 50.0, 41);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (5, 2023, 10, 1, 12.0, 58.0, 51);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (6, 2023, 1, 3, 22.0, 40.0, 61);
+
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(4, "2023-10-19",61, 40.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(5, "2023-10-11",41, 50.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(6, "2023-11-01", 51, 40.0);
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(7, 'Ionescu Laura','ionescu.l@example.com');
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(8, 'Popa Darius', 'popa.d@example.com');
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(9, 'Dan Maria', 'd.maria@example.com');
+
+
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(81, 'Strada S, Nr. 60', 11, 85, 8);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(82, 'Strada T, Nr. 65', 12, 100, 8);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(91, 'Strada U, Nr. 70', 13, 90, 9);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(92, 'Strada V, Nr. 75', 14, 110, 9);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(71, 'Strada X, Nr. 85', 16, 105, 7);
+
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (7, 2023, 9, 2, 50.0,100.0, 81);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (8, 2023, 9, 1, 20.0, 50.0, 82);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (9, 2023, 1, 3, 22.0, 40.0, 91);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (10,2023, 9, 3, 26.0, 30.0, 92);
+
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (11,2023, 5, 3, 56.0, 60.0, 71);
+
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(7, "2023-09-19",81, 100.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(8, "2023-09-11",82, 50.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(9, "2023-01-11", 91, 40.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(10,"2023-09-19",92, 30.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(11,"2023-05-11",71, 30.0);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (12,2023, 9, 3, 26.0, 30.0, 11);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (13,2023, 2, 3,106.0,130.0, 11);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (14,2023, 2, 3,106.0,150.0, 21);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (15,2023, 1, 3,66.0,10.0, 31);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (16,2023, 4, 3,6.0,15.0, 31);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (35,2023, 1, 3,66.0,10.0, 21);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (17,2023, 1, 2,66.0,21.0, 41);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (18,2023,11, 2,76.0,71.0, 51);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (19,2023,11, 1,76.0,71.0, 41);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (20,2023, 1, 1,66.0,10.0, 51);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (21,2023, 5, 3,26.0,10.0, 61);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (22,2023, 7, 3,63.0,90.0, 61);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (23,2023, 7, 3,63.0,90.0, 81);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (24,2023, 1, 1,66.0,10.0, 81);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (25,2023, 1, 3,66.0,10.0, 82);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (26,2023, 8, 3,96.0,99.0, 82);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (27,2023, 8, 3,96.0,99.0, 91);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (28,2023, 6, 3,46.0, 9.0, 91);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (29,2023, 6, 3, 16.0, 10.0, 92);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (30,2023, 2, 3, 76.0, 90.0, 92);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (31,2023, 7, 3, 66.0, 70.0, 71);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (32,2023, 2, 3, 12.0, 20.0, 71);
+
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(10,'Maris Iust', 'maris.iusti@example.com');
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(11,'Amariei Ana','a.ana@example.com');
+INSERT INTO Proprietar (id_proprietar, nume, email)
+VALUES(12,'Nastaca Erica', 'n.erica@example.com');
+
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(101,'Gherla Băișoara 6',11, 150.0,10);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(111,'Gherla Băișoara 6',15, 100.0,11);
+INSERT INTO Apartament (id_ap, adresa, nr_ap, suprafata, id_proprietar)
+VALUES(121,'Gherla Băișoara 6', 2, 50.0,12);
+
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (33,2023, 10, 2, 10.0, 50.0,101);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (34,2023,10, 1, 15.0, 80.0,111);
+INSERT INTO Consum (id_consum, an, luna, nr_pers, cantitate, valoare, id_apartament)
+VALUES (36,2023,10, 3, 60.0, 150.0,121);
+
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(12,"2023-10-19",101, 50.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(13,"2022-10-04",111, 80.0);
+INSERT INTO Chitanta (nr, datai, id_apartament, valoare)
+VALUES(14,"2023-10-02",121, 150.0);

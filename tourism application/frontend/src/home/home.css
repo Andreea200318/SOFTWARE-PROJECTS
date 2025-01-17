@@ -1,0 +1,135 @@
+/* Containerele generale */
+.home-container {
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  color: #010101;
+  padding-top: 180px; /* Ajustează această valoare în funcție de înălțimea header-ului */
+}
+
+/* Slider */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrează lista de imagini */
+  position: relative;
+  width: 100%;
+}
+
+.carousel-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-btn.left {
+  position: absolute;
+  left: 10px;
+}
+
+.carousel-btn.right {
+  position: absolute;
+  right: 10px;
+}
+
+/* Destinațiile */
+.home-destinations {
+  text-align: center;
+}
+
+/* Listă de imagini */
+.destination-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  padding: 0 20px; /* Adăugăm puțin padding pe laterale pentru un aspect mai plăcut */
+}
+
+/* Destinațiile */
+.destination-item {
+  width: 30%; /* Fiecare imagine ocupă 30% din lățimea containerului */
+  position: relative; /* Setăm poziționare relativă pentru a plasa textul deasupra */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: 0; /* Eliminăm marginea suplimentară */
+}
+
+.destination-item img {
+  width: 100%;  /* Asigurăm că imaginea ocupă întreaga lățime */
+  height: 200px; /* Asigurăm că imaginea va acoperi complet înălțimea containerului */
+  object-fit: cover; /* Imaginea va acoperi întregul container, păstrând raportul de aspect */
+  display: block; /* Elimină eventualele spații albe sub imagine */
+  margin: 0; /* Elimină marginile nedorite */
+}
+
+/* Textul va ocupa toată lățimea imaginii și va fi plasat la partea de jos */
+.destination-item a {
+  position: absolute; /* Plasăm textul deasupra imaginii */
+  bottom: 0; /* Plasăm textul exact la partea de jos a imaginii */
+  left: 0; /* Aliniem textul la stânga imaginii */
+  width: 100%; /* Textul va ocupa întreaga lățime a imaginii */
+  margin: 0; /* Eliminăm orice spațiu suplimentar */
+  padding: 5px; /* Minimal padding pentru a păstra textul vizibil */
+  font-size: 1.2rem; /* Mărim textul */
+  font-weight: bold;
+  color: white; /* Text alb */
+  background-color: rgba(0, 0, 0, 0.6); /* Fundal semi-transparent negru */
+  text-align: center;
+  text-decoration: none; /* Îndepărtează linia de sub link */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Umbra pe text pentru a fi vizibil */
+  transition: background-color 0.3s ease, font-size 0.3s ease; /* Tranziții pentru fundal și dimensiune */
+}
+
+/* Efecte de hover */
+.destination-item:hover {
+  transform: scale(1.05); /* Mărire ușoară a imaginii */
+}
+
+.destination-item:hover a {
+  background-color: rgba(0, 0, 0, 0.8); /* Opacitate mai mare pe fundalul textului */
+  font-size: 1.3rem; /* Mărire ușoară a textului */
+}
+
+/* Stiluri pentru butonul de call-to-action */
+.home-cta {
+  text-align: center;
+  margin-top: 3rem;
+  background-color: #4CAF50;
+  color: white;
+  padding: 3rem;
+  border-radius: 8px;
+}
+
+.home-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.home-cta p {
+  font-size: 1.2rem;
+}
+
+.home-cta button {
+  padding: 1rem 2rem;
+  background-color: white;
+  color: #4CAF50;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-cta button:hover {
+  background-color: #45a049;
+  color: white;
+}

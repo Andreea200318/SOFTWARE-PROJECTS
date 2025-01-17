@@ -1,0 +1,101 @@
+.welcome-page {
+    font-family: 'Poppins', sans-serif;
+    background: url('./romania.png') no-repeat center center;
+    background-size: 60%;
+    background-position: center;
+    background-attachment: fixed;
+    color: #010101;
+    text-align: center;
+    border-radius: 12px;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .welcome-page h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #010101; /* Păstrăm culoarea textului */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Umbră subtilă */
+    margin-bottom: 1rem;
+  }
+  
+  .welcome-page p {
+    font-size: 1.5rem;
+    color: #333; /* Păstrăm culoarea implicită */
+    max-width: 600px;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  /* Gruparea butoanelor */
+  .button-group {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Stiluri generale pentru butoane */
+  .btn {
+    padding: 12px 30px;
+    font-size: 1.2em;
+    border-radius: 50px; /* Colțuri complet rotunjite */
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Adăugăm o umbră pentru efect 3D */
+  }
+  
+  /* Stil pentru butonul de utilizator */
+  .user-btn {
+    background-color: #a2f3a0; /* Verdele original */
+    color: #000000; /* Negru pentru text */
+  }
+  
+  .user-btn:hover {
+    background-color: #8bd187; /* Un verde mai închis pentru hover */
+    transform: scale(1.05); /* Mărire la hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Umbră mai intensă */
+  }
+  
+  /* Stil pentru butonul de admin */
+  .admin-btn {
+    background-color: #a2f3a0; /* Verdele original */
+    color: #000000; /* Negru pentru text */
+  }
+  
+  .admin-btn:hover {
+    background-color: #8bd187; /* Un verde mai închis pentru hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Efect de focus */
+  .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(162, 243, 160, 0.5); /* Contur verde deschis */
+  }
+  
+  /* Animație subtilă la apariție */
+  .welcome-page h1, .welcome-page p, .button-group {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

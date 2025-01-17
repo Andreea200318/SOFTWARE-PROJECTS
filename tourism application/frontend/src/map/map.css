@@ -1,0 +1,33 @@
+/* src/harta/harta.css */
+.harta-container {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    padding-top: 180px; /* Ajustează această valoare în funcție de înălțimea header-ului */
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .map {
+    width: 100%;
+    max-width: 1200px;
+    height: 500px;
+    margin-top: 2rem;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  .leaflet-control-zoom {
+    position: sticky; /* Poziționează controlul de zoom într-un mod sticky */
+    top: 10px; /* Ajustează pentru a-l plasa mai sus sau mai jos față de hartă */
+    z-index: 1000; /* Asigură-te că este deasupra hărții */
+  }

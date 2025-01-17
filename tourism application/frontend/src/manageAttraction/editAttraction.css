@@ -1,0 +1,118 @@
+/* Containerul principal pentru editarea atracției */
+.edit-attractions-container {
+    margin-top: 160px; /* Spațiu pentru a evita suprapunerea cu header-ul */
+    padding: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f9fff9; /* Fundal alb-verzui subtil */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Umbră pentru efect vizual */
+  }
+  
+  /* Titlul pentru pagină */
+  .edit-attractions-container h2 {
+    text-align: center;
+    color: #2d742d; /* Verde închis pentru contrast */
+    margin-bottom: 20px;
+  }
+  
+  /* Lista de atracții (vizibilă doar când nu este în mod de editare) */
+  .attractions-list {
+    margin-top: 40px; /* Spațiu între formular și listă */
+  }
+  
+  /* Elemente individuale din lista de atracții */
+  .attractions-list li {
+    list-style: none;
+    padding: 10px;
+    border: 1px solid #c3e6c3;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f4fff4; /* Fundal pentru element */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Stil pentru butoanele din lista de atracții */
+  .attraction-item button {
+    background-color: #2d742d;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  /* Efectul de hover pentru butonul de editare */
+  .attraction-item button:hover {
+    background-color: #246124; /* Verde mai închis la hover */
+  }
+  .no-attractions-message {
+    text-align: center;
+    color: #ff5c5c; /* Roșu subtil pentru atenționare */
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  
+  /* Formularul pentru editarea atracției */
+  .edit-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-form h3 {
+    color: #2d742d;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .edit-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2d742d;
+  }
+  
+  /* Input-uri și textarea */
+  .edit-form input,
+  .edit-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c3e6c3;
+    border-radius: 5px;
+    background-color: #f4fff4; /* Fundal deschis */
+    font-size: 16px;
+  }
+  
+  /* Butoanele de salvare și anulare */
+  .edit-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2d742d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Efect de hover pentru butoanele de salvare și anulare */
+  .edit-form button:hover {
+    background-color: #246124; /* Verde mai închis la hover */
+  }
+  
+  /* Stil pentru butonul de anulare */
+  .edit-form button:nth-child(2) {
+    background-color: #ff5c5c; /* Roșu pentru anulare */
+  }
+  
+  .edit-form button:nth-child(2):hover {
+    background-color: #ff3b3b; /* Roșu mai închis la hover */
+  }
+  

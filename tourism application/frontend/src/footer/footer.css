@@ -1,0 +1,11 @@
+/* src/components/Footer.css */
+footer {
+  background-color: #88e08b; /* Verde plăcut */
+  color: #fff;
+  padding: 0rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px; /* Rotunjirea header-ului */
+  margin-top: 20px;
+}

@@ -1,0 +1,97 @@
+.my-account-page {
+    padding: 2rem;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding-top: 180px;
+  }
+  
+  .my-account-page h1 {
+    color: #4a148c;
+    margin-bottom: 2rem;
+  }
+  
+  .county-lists {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .list {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .list h2 {
+    color: #6a1b9a;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  /* Stiluri generale pentru liste */
+  .list ul {
+    list-style: none; /* Elimină bulinuțele */
+    padding: 0;
+  }
+  
+  .list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  /* Lista cu județe vizitate */
+  .visited-list ul li {
+    background-color: #bbdefb; /* Albastru deschis */
+    color: #1565c0; /* Text albastru */
+  }
+  
+  /* Lista cu județe de vizitat */
+  .to-visit-list ul li {
+    background-color: #c8e6c9; /* Verde deschis */
+    color: #388e3c; /* Text verde */
+  }
+  
+  /* Lista cu județe pe care nu le vizităm */
+  .not-to-visit-list ul li {
+    background-color: #ffcdd2; /* Roșu deschis */
+    color: #d32f2f; /* Text roșu */
+  }
+  
+  /* Hover pentru toate listele */
+  .list li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  /* Buton de Logout */
+  .logout-button {
+    background-color: #d32f2f;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+  }
+  
+  .logout-button:active {
+    background-color: #9a0007;
+    transform: translateY(0);
+  }
+  

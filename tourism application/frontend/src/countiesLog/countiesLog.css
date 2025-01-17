@@ -1,0 +1,82 @@
+/* Container principal */
+.counties-container {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    padding-top: 180px; /* Ajustează în funcție de header */
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  }
+  
+  /* Titlu */
+  .counties-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  /* Lista de județe (grid layout) */
+  .counties-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 coloane pentru desktop */
+    grid-gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* Județ individual */
+  .county {
+    position: relative;
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+
+  }
+  
+  /* Text peste imagine */
+  .county-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.6); /* fundal semi-transparent */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, font-size 0.3s ease; /* Tranziție pentru fundal și dimensiunea fontului */
+  
+  }
+  
+  /* Responsivitate */
+  @media (max-width: 1024px) {
+    .counties-list {
+      grid-template-columns: repeat(3, 1fr); /* 3 coloane pentru tabletă */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .counties-list {
+      grid-template-columns: repeat(2, 1fr); /* 2 coloane pentru telefon */
+    }
+  
+    .county {
+      height: 150px; /* Dimensiuni mai mici pe ecran mic */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .counties-list {
+      grid-template-columns: 1fr; /* 1 coloană pentru telefoane foarte mici */
+    }
+  }
+  

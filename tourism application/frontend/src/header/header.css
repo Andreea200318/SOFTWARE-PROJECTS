@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Stilizare generală pentru header */
+header {
+  background-color: #4CAF50; /* Verde plăcut */
+  position: fixed;
+  top: 0; /* Asigură că header-ul este fixat în partea de sus a paginii */
+  left: 0; /* Asigură că începe de la marginea stângă */
+  width: 100%; /* Asigură că ocupă întreaga lățime a paginii */
+  color: #fff;
+  padding: 0.5rem 1rem; /* Ajustează padding-ul pentru a da o margine mai mică */
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px; /* Rotunjirea header-ului */
+  z-index: 2000; /* Asigură că este deasupra altor elemente */
+  box-sizing: border-box; /* Asigură că padding-ul este inclus în lățime */
+}
+
+
+html, body {
+  margin: 0;  /* Elimină marginile implicite */
+  padding: 0; /* Elimină padding-ul implicit */
+  width: 100%; /* Asigură că pagina folosește întreaga lățime */
+  height: 100%; /* Asigură că ocupă întreaga înălțime */
+}
+
+/* Structura conținutului header-ului */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Lățime maximă pentru header */
+}
+
+/* Stilizare pentru linkurile din stânga și dreapta */
+.left-links, .right-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Logo */
+.logo {
+  width: 300px; /* Ajustează lățimea dorită pentru logo */
+  height: auto;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+
+/* Link styling */
+nav a,
+nav button {
+  padding: 0.5rem 1rem;
+  background-color: #a2f3a0;
+  color: #000000;
+  border: none;
+  border-radius: 20px; /* Rotunjirea butoanelor */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+nav a:hover,
+nav button:hover {
+  background-color: #777;
+}
+
+nav button {
+  cursor: pointer;
+}
+
+.right-links button {
+  background-color: #ff4d4d; /* Culoare de fundal pentru buton */
+  color: white; /* Culoare text */
+  border: none; /* Fără margine */
+  padding: 10px 20px; /* Dimensiune confortabilă */
+  font-size: 16px; /* Mărimea fontului */
+  cursor: pointer; /* Pointer la hover */
+  border-radius: 5px; /* Colțuri rotunjite */
+  transition: background-color 0.3s ease; /* Tranziție pentru culoare */
+}
+
+.right-links button:hover {
+  background-color: #e60000; /* Culoare de fundal la hover */
+}
+
+.right-links button:active {
+  transform: scale(0.98); /* Micșorează butonul ușor când este apăsat */
+}
+

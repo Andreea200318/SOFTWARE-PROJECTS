@@ -1,0 +1,103 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .login-admin-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Modificat din center în flex-start pentru a alinia sus */
+    padding-top: 100px; /* Reducem padding-ul pentru a muta formularul mai sus */
+    background: white;
+    background-attachment: cover; /* sau 'cover', dacă ai probleme cu elementele care se află în fundal */
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .login-admin-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #a2f3a0;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 20px; /* Reducem marginea de jos pentru a apropia mai mult formularul */
+  }
+  
+  .login-admin-page h1 {
+    margin-bottom: 0.5rem; /* Reducem margin-bottom pentru a apropia titlul de formular */
+    color: #2e7d32;
+    font-size: 1.5rem;
+  }
+  
+  .login-admin-form label {
+    font-weight: bold;
+    color: #388e3c;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  
+  .login-admin-form input {
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #a5d6a7;
+    border-radius: 6px;
+    background-color: #f1f8e9;
+    transition: all 0.3s ease;
+  }
+  
+  .login-admin-form input:focus {
+    border-color: #66bb6a;
+    outline: none;
+    background-color: #e8f5e9;
+  }
+  
+  .login-admin-form button {
+    background-color: #43a047;
+    color: #ffffff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .login-admin-form button:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+  }
+  
+  .login-admin-form button:active {
+    background-color: #2e7d32;
+    transform: translateY(0);
+  }
+  
+  .error {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Stiluri pentru butonul adminului */
+  .admin-login-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .admin-login-btn:hover {
+    background-color: #218838;
+  }
+  
+  .admin-login-btn:active {
+    background-color: #1e7e34;
+  }
+  

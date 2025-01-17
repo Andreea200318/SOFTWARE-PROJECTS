@@ -1,0 +1,171 @@
+/* Containerul general */
+.county-detail-container {
+    padding: 60px;
+    padding-top: 180px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #333;
+}
+
+/* Titlul principal */
+.county-detail-container h2 {
+    text-align: center;
+    
+    font-size: 2.5em; /* Crește dimensiunea titlului */
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+/* Cardurile pentru fiecare atracție */
+.attraction-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr 150px; /* Coloana pentru radio are dimensiune fixă */
+    gap: 30px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    max-width: 1200px;
+    width: 60% !important; /* Dimensiunea cardului */
+    align-items: center;
+}
+
+/* Imaginea și titlul atracției */
+.attraction-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: -10px; /* Mută titlul și imaginea mai sus */
+}
+
+.attraction-image {
+    width: 100%;
+    width: 250px !important; /* Crește dimensiunea imaginii */
+    height: 180px !important; /* Crește înălțimea imaginii */
+    object-fit: cover;
+    border-radius: 8px; /* Ușor mai rotunjit */
+}
+
+.attraction-image-container h3 {
+    font-size: 1.8em; /* Crește dimensiunea fontului titlului */
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px; /* Adaugă spațiu între imagine și titlu */
+}
+
+/* Descrierea atracției */
+.attraction-description {
+    font-size: 1.1em; /* Crește dimensiunea textului */
+    color: #555; /* Ușor mai închis pentru contrast */
+    line-height: 1.8; /* Îmbunătățește lizibilitatea */
+    text-align: left;
+    align-self: center;
+    margin-top: 0;
+    padding: 0 20px; /* Adaugă mai mult spațiu lateral */
+}
+
+.radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 0;
+  margin: -30px;
+  width: 100%;
+}
+
+.radio-options label {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: #333;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.radio-options input {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.radio-options fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.radio-options legend {
+  display: none;
+}
+
+.radio-options.hidden {
+    visibility: hidden; /* Ascunde elementele vizual, dar păstrează spațiul ocupat */
+    position: absolute; /* Scoate elementul din flux pentru iluzia de dispariție */
+    height: 0; /* Reduce complet dimensiunea ocupată */
+    overflow: hidden;
+}
+
+.no-radio-options .radio-options {
+    display: none;
+  }
+
+/* Responsivitate */
+@media (max-width: 600px) {
+    .attraction-card {
+        grid-template-columns: 1fr;
+        width: auto !important; /* Se asigură că nu este fix */
+    }
+
+    .radio-options {
+        align-items: center;
+    }
+
+    .attraction-image {
+        max-width: 200px; /* Reduce dimensiunea imaginii pe ecrane mici */
+        height: auto;
+    }
+
+    .attraction-description {
+        padding: 0 10px; /* Reduce padding-ul lateral */
+    }
+}
+.back-button {
+    display: block; /* Schimbat din inline-block pentru a ocupa toată lățimea disponibilă */
+    margin: 20px auto; /* Centrare orizontală și spațiu deasupra/dedesubt */
+    padding-top: 180px;
+    background-color: #f9fff9;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #2d742d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #e6f7e6; /* O nuanță mai deschisă pentru hover */
+}
+
+.submit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+

@@ -1,0 +1,75 @@
+/* Containerul pentru lista de județe */
+.myAccount-counties-container {
+  margin-top: 180px;
+
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f9fff9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Titlul */
+.myAccount-counties-container h2 {
+  text-align: center;
+  color: #2d742d;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 40px;
+
+}
+
+/* Lista de județe ca grid */
+.counties-list {
+  display: grid; /* Activează grila */
+  grid-template-columns: repeat(3, 1fr); /* Trei coloane egale */
+  gap: 20px; /* Spațiu între elemente */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* Centrare a textului */
+}
+
+/* Fiecare județ */
+.county-item {
+  font-weight: bold;
+  color: #2d742d;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Link-ul județului */
+.county-link {
+  text-decoration: none;
+  color: #2d742d;
+}
+
+.county-link:hover {
+  text-decoration: underline;
+  color: #246124; /* Culoare mai închisă la hover */
+}
+
+.back-button {
+  display: inline-block;
+  position: absolute; /* Poziționare absolută față de pagina întreagă */
+  top: 20px; /* Distanța de sus */
+  right: 20px; /* Distanța de la marginea din stânga a paginii */
+  padding: 10px 20px;
+  background-color: #f9fff9;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #2d742d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #f9fff9;
+}
+
+
